@@ -1,7 +1,7 @@
 # Kumbukumbu
 
 [![CircleCI](https://circleci.com/gh/webinmove/kumbukumbu.svg?style=svg)](https://circleci.com/gh/webinmove/kumbukumbu)
-[![npm version](https://img.shields.io/npm/v/kumbukumbu.svg)](https://www.npmjs.com/package/kumbukumbu)
+[![npm version](https://img.shields.io/npm/v/@webinmove/kumbukumbu.svg)](https://www.npmjs.com/package/@webinmove/kumbukumbu)
 [![Dependency Status](https://img.shields.io/david/webinmove/kumbukumbu.svg?style=flat-square)](https://david-dm.org/webinmove/kumbukumbu)
 
 Node.js library to use redis as cache on top of Express
@@ -9,7 +9,7 @@ Node.js library to use redis as cache on top of Express
 ## Installation
 
 ```sh
-$ npm install --save kumbukumbu
+$ npm install --save @webinmove/kumbukumbu
 ```
 
 ## Usage
