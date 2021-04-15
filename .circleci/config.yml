@@ -1,0 +1,69 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10
+
+jobs:
+  install:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node-modules
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-modules
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Run lint
+          command: npm run test:lint
+  publish:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate on npm registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Publish on npm registry
+          command: npm publish --access=public
+
+workflows:
+  version: 2
+  main-flow:
+    jobs:
+      - install:
+          filters:
+            tags:
+              only:
+                - /.*/
+      - test:
+          requires:
+            - install
+          filters:
+            tags:
+              only:
+                - /.*/
+      - publish:
+          context: Npm
+          requires:
+            - test
+          filters:
+            branches:
+              ignore:
+                - /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/

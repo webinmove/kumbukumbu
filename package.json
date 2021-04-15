@@ -1,0 +1,36 @@
+{
+  "name": "@webinmove/kumbukumbu",
+  "version": "1.0.0",
+  "description": "Cache system on top of Express and with Redis as storage",
+  "main": "lib/kumbukumbu.js",
+  "scripts": {
+    "format": "semistandard --fix",
+    "test:lint": "semistandard --verbose | snazzy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webinmove/kumbukumbu.git"
+  },
+  "keywords": [
+    "cache",
+    "express",
+    "redis",
+    "interceptor"
+  ],
+  "author": "Louis Borsu <sat@satprod.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webinmove/kumbukumbu/issues"
+  },
+  "homepage": "https://github.com/webinmove/kumbukumbu#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "object-hash": "^2.1.1",
+    "parse-duration": "^1.0.0",
+    "parse-headers": "^2.0.3"
+  },
+  "devDependencies": {
+    "semistandard": "^14.2.0",
+    "snazzy": "^8.0.0"
+  }
+}
