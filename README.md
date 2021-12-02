@@ -34,6 +34,9 @@ const Cache = new Kumbukumbu({
       ttl: '1d',
       methods: ['GET']
     }
+  ],
+  statusCodes: [
+    500 // Thoose are statusCode that are also cached with 2xx responses, it's optional
   ]
 });
 ```
