@@ -1,6 +1,6 @@
 {
   "name": "@webinmove/kumbukumbu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cache system on top of Express and with Redis as storage",
   "main": "lib/kumbukumbu.js",
   "scripts": {
